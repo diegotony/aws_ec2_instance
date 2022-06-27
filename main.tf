@@ -1,6 +1,6 @@
 locals {
   security_groups = var.security_groups
-  tags = merge(var.tags, { "Name" = "${var.name}" })
+  tags            = merge(var.tags, { "Name" = "${var.name}" })
 }
 
 resource "aws_instance" "this" {
