@@ -48,6 +48,6 @@ variable "filter" {
 }
 
 variable "owners" {
-  type    = string
+  type    = map(string)
   default = ["amazon"]
 }
