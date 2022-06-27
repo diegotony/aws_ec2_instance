@@ -35,7 +35,7 @@ variable "user_data" {
 }
 
 
-variable "filter" {
+variable "filters" {
   type = list(object({ name = string, values : list(string) }))
   default = [
     {
