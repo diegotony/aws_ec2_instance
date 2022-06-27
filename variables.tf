@@ -3,7 +3,7 @@ variable "tags" {
 }
 
 variable "name" {
-  type = string
+  type        = string
   description = "(optional) describe your variable"
 }
 
@@ -19,9 +19,9 @@ variable "instance_type" {
 }
 
 variable "security_groups" {
-  type = any
+  type        = any
   description = "security group"
-  default = null
+  default     = null
 }
 variable "key_name" {
   type        = string
