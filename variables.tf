@@ -34,7 +34,7 @@ variable "user_data" {
 
 
 variable "filter" {
-  type = map(object({ name = string, values : map() }))
+  type = map(object({ name = string, values : list(string) }))
   default = {
     "filter_one" = {
       name   = "name"
