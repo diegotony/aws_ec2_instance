@@ -3,8 +3,8 @@ data "aws_ami" "this" {
 
   dynamic "filter"{
     for_each = var.filters
-    name = filter.value.name
-    values = filter.value.values
+    name = filter.name
+    values = filter.values
   }
 
   owners = var.owners
