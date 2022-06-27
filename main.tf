@@ -1,5 +1,5 @@
 locals {
-  ami = var.ami != "" ? var.ami : data.aws_ami.this.id
+  ami = var.ami != null ? var.ami : data.aws_ami.this.id
 }
 
 resource "aws_instance" "this" {

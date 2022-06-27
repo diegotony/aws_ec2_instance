@@ -4,6 +4,8 @@ variable "tags" {
 
 variable "ami" {
   description = "The OS that be used in instance"
+  type = string
+  default = null
 }
 
 variable "instance_type" {
