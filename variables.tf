@@ -4,8 +4,8 @@ variable "tags" {
 
 variable "ami" {
   description = "The OS that be used in instance"
-  type = string
-  default = null
+  type        = string
+  default     = null
 }
 
 variable "instance_type" {
@@ -37,16 +37,16 @@ variable "user_data" {
 
 variable "filter" {
   type = list(object({ name = string, values : list(string) }))
-  default = {
-    "filter_one" = {
+  default = [
+    {
       name   = "name"
       values = ["amzn2-ami-hvm-*-x86_64-ebs"]
     },
-    "filter_two" = {
+    {
       name   = "virtualization-type"
       values = ["hvm"]
     }
-  }
+  ]
 }
 
 variable "owners" {
