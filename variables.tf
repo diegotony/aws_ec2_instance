@@ -36,7 +36,7 @@ variable "user_data" {
 
 
 variable "filters" {
-  type = list(object({ name = string, values : list(string) }))
+  type = list(object({ name = string, values = list(string) }))
   default = [
     {
       name   = "name"
