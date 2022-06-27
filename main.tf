@@ -1,14 +1,15 @@
 locals {
-  ami = var.ami != null ? var.ami : data.aws_ami.this.id
+  security_groups = var.security_groups
+  tags = merge(var.tags, { "Name" = "${var.name}" })
 }
 
 resource "aws_instance" "this" {
-  ami             = local.ami
+  ami             = var.ami
   instance_type   = var.instance_type
-  security_groups = var.security_groups
+  security_groups = var.security_groups != null ? [] : []
   key_name        = var.key_name
   user_data       = var.user_data
-  tags            = var.tags
+  tags            = local.tags
 }
 
 output "name" {

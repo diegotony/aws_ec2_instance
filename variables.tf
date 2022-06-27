@@ -2,10 +2,15 @@ variable "tags" {
   description = "description tags"
 }
 
+variable "name" {
+  type = string
+  description = "(optional) describe your variable"
+}
+
 variable "ami" {
   description = "The OS that be used in instance"
   type        = string
-  default     = null
+  default     = "ami-0cff7528ff583bf9a"
 }
 
 variable "instance_type" {
@@ -14,9 +19,10 @@ variable "instance_type" {
 }
 
 variable "security_groups" {
+  type = any
   description = "security group"
+  default = null
 }
-
 variable "key_name" {
   type        = string
   description = "Key Access Key"
@@ -32,24 +38,4 @@ variable "user_data" {
     systemctl enable httpd
     echo "<h1>Hello world  from $(hostname -f) </h1>" > /var/www/html/index.html
   EOF
-}
-
-
-variable "filters" {
-  type = list(object({ name = string, values = list(string) }))
-  default = [
-    {
-      name   = "name"
-      values = ["amzn2-ami-hvm-*-x86_64-ebs"]
-    },
-    {
-      name   = "virtualization-type"
-      values = ["hvm"]
-    }
-  ]
-}
-
-variable "owners" {
-  type    = list(string)
-  default = ["amazon"]
 }
