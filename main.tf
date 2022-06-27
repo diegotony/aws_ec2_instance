@@ -1,5 +1,5 @@
 resource "aws_instance" "this" {
-  ami             = data.aws_ami.this.id
+  ami             = var.ami != "" ? var.ami : data.aws_ami.this.id
   instance_type   = var.instance_type
   security_groups = var.security_groups
   key_name        = var.key_name
@@ -8,5 +8,5 @@ resource "aws_instance" "this" {
 }
 
 output "name" {
-  value = "Hey MY PUBLIC IP ${module.server.public_ip}"
+  value = "Hey MY PUBLIC IP ${aws_instance.this.public_ip}"
 }
