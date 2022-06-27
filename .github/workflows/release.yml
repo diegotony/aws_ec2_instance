@@ -1,6 +1,7 @@
 name: Release Module
 
 on:
+
   push:
     branches:
       - main
