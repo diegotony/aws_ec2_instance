@@ -1,5 +1,9 @@
+locals {
+  ami = var.ami != "" ? var.ami : data.aws_ami.this.id
+}
+
 resource "aws_instance" "this" {
-  ami             = var.ami != "" ? var.ami : data.aws_ami.this.id
+  ami             = local.ami
   instance_type   = var.instance_type
   security_groups = var.security_groups
   key_name        = var.key_name
