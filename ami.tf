@@ -9,4 +9,3 @@ data "aws_ami" "this" {
 
   owners = var.owners
 }
-
