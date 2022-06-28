@@ -42,6 +42,6 @@ variable "user_data" {
 }
 
 variable "description" {
-  type = object()
+  type = any
   description = "(optional) describe your variable"
 }
