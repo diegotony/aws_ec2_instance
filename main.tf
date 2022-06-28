@@ -9,7 +9,6 @@ resource "aws_instance" "this" {
   security_groups = var.security_groups != null ? [] : []
   key_name        = var.key_name
   user_data       = var.user_data
-  description     = var.description == "" ? "Instance ${var.name}" : var.description
   tags            = merge(var.tags, { "Name" = "${var.name}" })
 }
 
