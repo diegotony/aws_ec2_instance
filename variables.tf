@@ -1,6 +1,5 @@
 variable "tags" {
   description = "description tags"
-  default = {"":""}
 }
 
 variable "name" {
