@@ -1,14 +1,5 @@
-variable "tags" {
-  description = "description tags"
-  default     = { "foo" = "bar" }
-}
-
 variable "name" {
   type        = string
-  description = "(optional) describe your variable"
-}
-variable "sg_name" {
-  type = string
   description = "(optional) describe your variable"
 }
 
@@ -29,11 +20,6 @@ variable "instance_type" {
   description = "Instance type eg. t2.micro, t2.small etc"
 }
 
-variable "security_groups" {
-  type        = any
-  description = "security group"
-  default     = null
-}
 variable "key_name" {
   type        = string
   description = "Key Access Key"
@@ -49,6 +35,19 @@ variable "user_data" {
     systemctl enable httpd
     echo "<h1>Hello world  from $(hostname -f) </h1>" > /var/www/html/index.html
   EOF
+}
+
+# Network
+
+variable "sg_name" {
+  type = string
+  description = "(optional) describe your variable"
+}
+
+variable "security_groups" {
+  type        = any
+  description = "security group"
+  default     = null
 }
 
 variable "ingress" {
@@ -109,4 +108,23 @@ variable "egress" {
 
     }
   }
+}
+
+# EBS
+
+variable "ebs_name" {
+  type = string
+  description = "(optional) describe your variable"
+}
+
+variable "ebs_size" {
+  type = number
+  description = "(optional) describe your variable"
+}
+
+
+
+variable "tags" {
+  description = "description tags"
+  default     = { "foo" = "bar" }
 }
