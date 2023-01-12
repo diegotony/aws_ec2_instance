@@ -4,7 +4,3 @@ module "my_instance" {
     description = "a simple test"
     key_name = "terraform"
 }
-
-output "test" {
-    value = module.my_instance.test
-}
