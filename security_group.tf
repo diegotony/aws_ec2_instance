@@ -1,5 +1,5 @@
 resource "aws_security_group" "this" {
-  count = var.sg_name ? 1 : 0
+  count = var.sg_name == "" ? 0 : 1
   name        = var.sg_name
   description = var.description
 
@@ -33,7 +33,10 @@ resource "aws_security_group" "this" {
 }
 
 resource "aws_network_interface_sg_attachment" "this" {
-  count = var.sg_name ? 1 : 0
-  security_group_id    = aws_security_group.this.id
+  depends_on = [
+    aws_security_group.this
+  ]
+  count = var.sg_name == "" ? 0 : 1
+  security_group_id    = aws_security_group.this[count.index].id
   network_interface_id = aws_instance.this.primary_network_interface_id
 }

@@ -41,13 +41,14 @@ variable "user_data" {
 
 variable "sg_name" {
   type = string
+  default = ""
   description = "give a name to security group"
 }
 
 variable "security_groups" {
   type        = any
   description = "List of security groups names "
-  default     = null
+  default     = []
 }
 
 variable "ingress" {
@@ -114,6 +115,7 @@ variable "egress" {
 
 variable "ebs_name" {
   type = string
+  default = ""
   description = "give a name to ebs"
 }
 
