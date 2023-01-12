@@ -1,11 +1,11 @@
 variable "name" {
   type        = string
-  description = "(optional) describe your variable"
+  description = "instance name"
 }
 
 variable "description" {
   type = string
-  description = "(optional) describe your variable"
+  description = "Give a description"
 }
 
 variable "ami" {
@@ -22,7 +22,7 @@ variable "instance_type" {
 
 variable "key_name" {
   type        = string
-  description = "Key Access Key"
+  description = "Key Access Key for instance"
 }
 
 variable "user_data" {
@@ -41,17 +41,17 @@ variable "user_data" {
 
 variable "sg_name" {
   type = string
-  description = "(optional) describe your variable"
+  description = "give a name to security group"
 }
 
 variable "security_groups" {
   type        = any
-  description = "security group"
+  description = "List of security groups names "
   default     = null
 }
 
 variable "ingress" {
-  description = "Inbound Config"
+  description = "Inbound Configs"
   type = map(object({
     description = string
     from_port   = string
@@ -85,7 +85,7 @@ variable "ingress" {
 }
 
 variable "egress" {
-  description = "Outbound Config"
+  description = "Outbound Configs"
   type = map(object({
     description = string
     from_port   = string
@@ -114,15 +114,14 @@ variable "egress" {
 
 variable "ebs_name" {
   type = string
-  description = "(optional) describe your variable"
+  description = "give a name to ebs"
 }
 
 variable "ebs_size" {
   type = number
-  description = "(optional) describe your variable"
+  default = 10
+  description = "give a size to ebs"
 }
-
-
 
 variable "tags" {
   description = "description tags"
