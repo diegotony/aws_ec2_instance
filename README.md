@@ -1,5 +1,4 @@
-# tf-module
-Template
+# aws_ec2_instance
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
