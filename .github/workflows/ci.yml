@@ -19,6 +19,9 @@ jobs:
   terraform-terratest:
     uses: diegotony/gh-pipelines/.github/workflows/terraform-plugin-terratest.yml@main
     if: github.event_name == 'pull_request'
+    permissions:
+      id-token: write
+      contents: read
     secrets:
       AWS_ACCESS_ROLE: ${{ secrets.AWS_ACCESS_ROLE }}
       AWS_DEFAULT_REGION: "us-east-1"
