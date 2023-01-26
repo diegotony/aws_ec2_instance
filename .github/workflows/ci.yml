@@ -16,6 +16,16 @@ jobs:
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
+  terraform-terratest:
+    uses: diegotony/gh-pipelines/.github/workflows/terraform-plugin-terratest.yml@main
+    if: github.event_name == 'pull_request'
+    permissions:
+      id-token: write
+      contents: read
+    secrets:
+      AWS_ACCESS_ROLE: ${{ secrets.AWS_ACCESS_ROLE }}
+      AWS_DEFAULT_REGION: "us-east-1"
+      
   terraform-plugin-tfsec:
     if: github.event_name == 'pull_request'
     uses: diegotony/gh-pipelines/.github/workflows/terraform-plugin-tfsec.yml@main
