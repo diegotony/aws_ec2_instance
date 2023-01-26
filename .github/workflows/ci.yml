@@ -19,7 +19,10 @@ jobs:
   terraform-terratest:
     uses: diegotony/gh-pipelines/.github/workflows/terraform-plugin-terratest.yml@main
     if: github.event_name == 'pull_request'
-
+    secrets:
+      AWS_ACCESS_ROLE: ""
+      AWS_DEFAULT_REGION: ""
+      
   terraform-plugin-tfsec:
     if: github.event_name == 'pull_request'
     uses: diegotony/gh-pipelines/.github/workflows/terraform-plugin-tfsec.yml@main
