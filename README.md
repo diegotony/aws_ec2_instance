@@ -1,4 +1,5 @@
 # aws_ec2_instance
+ec2-instance-custom
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
